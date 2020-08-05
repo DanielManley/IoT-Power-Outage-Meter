@@ -29,7 +29,7 @@ try:
         state = gpio.input(GVEA)      # Read button state
         print (state)
 	time.sleep(2)
-	client.publish("channels/%s/publish/%s" % (channelId,apiKey), payload=state)
+	client.publish("channels/%s/publish/%s" % (channelId,apiKey),"field1=26&field2=1013")
 
 
 except KeyboardInterrupt:
