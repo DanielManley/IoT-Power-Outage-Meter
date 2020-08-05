@@ -29,7 +29,7 @@ try:
     while True:
         state = gpio.input(GVEA)      # Read button state
         if state != laststate:
-		print ("the state is " + state)
+		print ("the state is " + str(state))
 		text2= "field1=" + str(state)
 		client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
 		sleep(10)
