@@ -33,7 +33,7 @@ try:
         if state != laststate:
 		print ("the state is " + str(state))
 		text2= "field1=" + str(state)
-		publish.single("channels/%s/publish/%s" % (channelId,apiKey), text2, mqtt.thingspeak.com)
+		publish.single("channels/%s/publish/%s" % (channelId,apiKey), text2, hostname = "mqtt.thingspeak.com")
 		#client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
 	laststate = state
 	time.sleep(0.2)
