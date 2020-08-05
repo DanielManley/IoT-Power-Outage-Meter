@@ -23,15 +23,17 @@ GVEA = port.PA12 #set pin 12 to GVEA
 gpio.init() #initiate GPIO usage
 gpio.setcfg(GVEA,gpio.INPUT) #set GVEA to input
 
+laststate = ""
 try:
     print ("Press CTRL+C to exit")
     while True:
         state = gpio.input(GVEA)      # Read button state
-        print (state)
-	time.sleep(2)
-	text2= "field1=" + str(state)
-	client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
-
-
+        if state != laststate:
+		print ("the state is " + state)
+		text2= "field1=" + str(state)
+		client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
+		sleep(10)
+	laststate = state
+	time.sleep(0.2)
 except KeyboardInterrupt:
     print ("Goodbye.")
