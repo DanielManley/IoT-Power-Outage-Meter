@@ -32,7 +32,6 @@ try:
 		print ("the state is " + str(state))
 		text2= "field1=" + str(state)
 		client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
-		time.sleep(10)
 	laststate = state
 	time.sleep(0.2)
 except KeyboardInterrupt:
