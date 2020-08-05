@@ -29,7 +29,7 @@ try:
         state = gpio.input(GVEA)      # Read button state
         print (state)
 	time.sleep(2)
-	text2= "field1=" + String (state)
+	text2= "field1=" + str(state)
 	client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
 
 
