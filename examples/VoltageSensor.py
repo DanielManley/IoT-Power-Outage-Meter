@@ -8,7 +8,6 @@ if not os.getegid() == 0:
     sys.exit('Script must be run as root')
 
 #import paho.mqtt.client as mqtt
-import context  # Ensures paho is in PYTHONPATH
 import paho.mqtt.publish as publish
 
 import time
