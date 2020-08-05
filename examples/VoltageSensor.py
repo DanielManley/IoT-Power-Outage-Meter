@@ -7,14 +7,17 @@ import sys
 if not os.getegid() == 0:
     sys.exit('Script must be run as root')
 
-import paho.mqtt.client as mqtt
+#import paho.mqtt.client as mqtt
+import context  # Ensures paho is in PYTHONPATH
+import paho.mqtt.publish as publish
+
 import time
 from pyA20.gpio import gpio
 from pyA20.gpio import connector
 from pyA20.gpio import port
 
-client = mqtt.Client()
-client.connect("mqtt.thingspeak.com",1883,60)
+#client = mqtt.Client()
+#client.connect("mqtt.thingspeak.com",1883,60)
 channelId = "1112212"  # Put your channel ID here
 apiKey = "AZP2G6XY3CKLAYFC"  # Put the API write key here
 
@@ -31,7 +34,8 @@ try:
         if state != laststate:
 		print ("the state is " + str(state))
 		text2= "field1=" + str(state)
-		client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
+		publish.single("channels/%s/publish/%s" % (channelId,apiKey), text2, mqtt.thingspeak.com)
+		#client.publish("channels/%s/publish/%s" % (channelId,apiKey),text2)
 	laststate = state
 	time.sleep(0.2)
 except KeyboardInterrupt:
