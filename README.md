@@ -1,8 +1,6 @@
-open source   modified  base on  pyA20 
-
+This is a power outage meter for the Orange Pi Zero. 
 reference 
-https://www.olimex.com/wiki/A20-OLinuXino-MICRO
-pyA20 
+https
 https://pypi.python.org/pypi/pyA20
 
 install ::
