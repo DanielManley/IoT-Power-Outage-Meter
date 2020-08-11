@@ -1,7 +1,7 @@
 This is a power outage meter run on the Orange Pi Zero using the Armbian Buster 5.4 linux-based operating system. The code uses the pyA20 (https://pypi.python.org/pypi/pyA20) python libraries for programming the built in GPIO ports on the board. The code uses the paho mqtt (https://pypi.org/project/paho-mqtt/) python libraties for enabling communication with ThingSpeak. Updates on the power status of the PA11 GPIO port are sent to ThingSpeak in periodic intervals, and whenever the power status of PA11 changes. ThingSpeak process that information, and sends an email via it's "react" function to the email attached to the ThingSpeak account used by the ASF engineering group. 
 
 Installing Hardware: 
-Look at GPIO Reference and circuit diagram attached images for reference. On the Orange Pi Zero, PA11 is noramlly high (3.3V). When connected to ground, PA11 goes low (0V). I connec
+Look at GPIO Reference and circuit diagram attached images for reference. The circuit diagram shows right after the power is off. On the Orange Pi Zero, PA11 is noramlly high (3.3V). When connected to ground, PA11 goes low (0V). I connected the Pi's ground to common on the relay, and PA11 to normally closed on the relay. This means that PA11 is shorted to ground when power is lost, and thus goes low. 
 
 Installing Code:
 1.) Install Armbian Buster 5.4 onto Orange Pi Zero. 
