@@ -2,8 +2,13 @@ This is a power outage meter run on the Orange Pi Zero using the Armbian Buster 
 
 Installing:
 1.) Install Armbian Buster 5.4 onto Orange Pi Zero. 
-2.) Clone and commit the files from this github onto the Pi. 
-
+2.) Connect to Pi via serial using PuTTY. Run hostname -I command. This shows you IP addres of Pi. Reconnect to Pi via SSH on PuTTY using this IP address.
+3.) Clone and commit the files from this github onto the Pi. 
+4.) Install python 2.7.16
+5.) Do command: pip install pyA20.
+6.) Do command: pip install paho-mqtt
+7.) Do command: sudo su. You are now root user. Do command: crontab -e. At bottom of document, enter "@reboot sleep 90 && python /home/daniel/sensor/program/VoltageSensor.py &" without quatation marks. This starts VoltageSensor.py every time the pi turns on.
+8.) Do command: shutdown -h now. This turns off Pi. Unplug Pi, wait a few seconds, then plug it back in. The Pi should 
 
 
 
