@@ -1,7 +1,9 @@
 This is a power outage meter run on the Orange Pi Zero using the Armbian Buster 5.4 linux-based operating system. The code uses the pyA20 (https://pypi.python.org/pypi/pyA20) 
 python libraries for programming the built in GPIO ports on the board. The code uses the paho mqtt (https://pypi.org/project/paho-mqtt/) python libraties for enabling 
 communication with ThingSpeak (https://thingspeak.com/). Updates on the power status of the PA11 GPIO port are sent to ThingSpeak in periodic intervals and whenever the power 
-status of PA11 changes. ThingSpeak processes that information and sends an email via it's "react" function to the email attached to the ThingSpeak account.
+status of PA11 changes. Your information first goes to your channel on ThingSpeak. This uses the Rich Voltage channel. To send an email there is MatLab code in ThinkSpeak's 
+analysis app. This code sends an email from ThinkSpeak. The ThinkSpeak react app is set to call the aforementioned MatLab code when certain criteria are met. In this case, 
+voltage goes high or low, depending on the situation.
 
 Installing Hardware: 
 Look at attached GPIO Reference and circuit diagram for reference. The circuit diagram shows right after the power is off. On the Orange Pi Zero, PA11 is noramlly high 
